@@ -42,7 +42,7 @@ interface ApixuWeatherApiService {
                 .build()
             return  Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://api.weatherstack.com/")
+                .baseUrl("http://api.weatherstack.com/")
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -50,3 +50,13 @@ interface ApixuWeatherApiService {
         }
     }
 }
+
+//object RetrofitBuilder {
+//    private fun getRetrofit(): Retrofit {
+//        return Retrofit.Builder()
+//            .baseUrl("https://api.weatherstack.com/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build() //Doesn't require the adapter
+//    }
+//    val apiService: ApixuWeatherApiService = getRetrofit().create(ApixuWeatherApiService::class.java)
+//}
