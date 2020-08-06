@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.example.forecastapp.R
 import com.example.forecastapp.data.ApixuWeatherApiService
-import com.example.forecastapp.data.response.CurrentWeatherResponse
+import com.example.forecastapp.data.network.response.CurrentWeatherResponse
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
