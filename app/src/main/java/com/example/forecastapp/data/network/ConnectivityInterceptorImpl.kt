@@ -2,7 +2,7 @@ package com.example.forecastapp.data.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.example.forecastapp.internal.NoConnectivityExceptio
+import com.example.forecastapp.internal.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -10,7 +10,7 @@ class ConnectivityInterceptorImpl(context:Context) : ConnectivityInterceptor {
     private val appContext =context.applicationContext
     override fun intercept(chain: Interceptor.Chain): Response {
         if(!isOnline())
-            throw NoConnectivityExceptio()
+            throw NoConnectivityException()
         return chain.proceed(chain.request())
 
     }
