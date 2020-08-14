@@ -5,6 +5,7 @@ import com.example.forecastapp.data.db.forecast_db.ForecastDatabase
 import com.example.forecastapp.data.network.*
 import com.example.forecastapp.data.repo.ForecastRepo
 import com.example.forecastapp.data.repo.ForecastRepoImpl
+import com.jakewharton.threetenabp.AndroidThreeTen
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -21,5 +22,10 @@ class ForecastApp: Application(), KodeinAware {
         bind() from singleton { ApixuWeatherApiService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind<ForecastRepo>() with singleton { ForecastRepoImpl(instance(),instance()) }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidThreeTen.init(this)
     }
 }
