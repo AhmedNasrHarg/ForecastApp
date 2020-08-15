@@ -12,7 +12,7 @@ import java.util.*
 
 @Entity(tableName = "current_weather")
 data class CurrentWeatherEntry(
-    val feelslike: Int,
+    val feelslike: Double,
     @SerializedName("is_day")
     val isDay: String,
     @SerializedName("observation_time")

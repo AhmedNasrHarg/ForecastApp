@@ -9,7 +9,7 @@ import com.example.forecastapp.data.db.dao.CurrnetWeatherDao
 import com.example.forecastapp.data.db.entity.CurrentWeatherEntry
 import com.example.forecastapp.data.db.entity.ListTypeConverter
 
-@Database(entities = arrayOf(CurrentWeatherEntry::class),version = 2)
+@Database(entities = arrayOf(CurrentWeatherEntry::class),version = 3)
 @TypeConverters(ListTypeConverter::class)
 abstract class ForecastDatabase:RoomDatabase(){
     abstract fun currnetWeatherDao(): CurrnetWeatherDao
@@ -23,6 +23,7 @@ abstract class ForecastDatabase:RoomDatabase(){
       private  fun buildDatabase(contex:Context) = Room.databaseBuilder(
           contex,
           ForecastDatabase::class.java, "forecast.db"
-        ).build()
+        ).fallbackToDestructiveMigration()
+          .build()
     }
 }

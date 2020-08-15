@@ -1,6 +1,8 @@
 package com.example.forecastapp
 
 import android.app.Application
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.forecastapp.data.db.forecast_db.ForecastDatabase
 import com.example.forecastapp.data.network.*
 import com.example.forecastapp.data.repo.ForecastRepo
@@ -16,6 +18,7 @@ import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 
 class ForecastApp: Application(), KodeinAware {
+    @RequiresApi(Build.VERSION_CODES.O)
     override val kodein = Kodein.lazy {
         import(androidXModule(this@ForecastApp))
         bind() from singleton { ForecastDatabase(instance()) }

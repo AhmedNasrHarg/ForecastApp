@@ -47,7 +47,7 @@ class ForecastRepoImpl(
     }
     private suspend fun fetchCurrentWeather(){
         weatherNetworkDataSource.fetchCurrentWeather(
-            "London",
+            "Cairo",
             "en"
         )
     }
